@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>孤独なハイパフォーマーのための深い対話診断｜無料・3分</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --base:        #f5f3ef;
+      --base-alt:    #eeebe5;
+      --white:       #fdfcfa;
+      --main:        #2c3a4a;
+      --main-light:  #3d5166;
+      --accent:      #7a9e8e;
+      --accent-soft: #a8c4b6;
+      --cta:         #3a7d6e;
+      --cta-hover:   #2d6259;
+      --text:        #2c2c2c;
+      --text-mid:    #555;
+      --text-soft:   #888;
+      --border:      #ddd8d0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: var(--base);
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    .container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 88px 0; }
+    .section-alt   { background: var(--base-alt); }
+    .section-white { background: var(--white); }
+    .section-dark  { background: var(--main); color: #e8e4dc; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .section-dark .section-label { color: var(--accent-soft); }
+
+    h2.section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 500;
+      line-height: 1.65;
+      color: var(--main);
+      margin-bottom: 36px;
+    }
+    .section-dark h2.section-title { color: #e8e4dc; }
+
+    p { line-height: 2; margin-bottom: 1em; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── CTA ブロック ── */
+    .cta-block {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: var(--cta);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      padding: 20px 56px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background .25s, transform .2s, box-shadow .2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(58,125,110,.25);
+    }
+    .btn-cta:hover {
+      background: var(--cta-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(58,125,110,.35);
+    }
+
+    .cta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 20px;
+      margin-top: 16px;
+    }
+    .cta-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+    .cta-badge::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .section-dark .cta-badge { color: #7090a0; }
+    .section-dark .cta-badge::before { color: var(--accent-soft); }
+
+    /* ─────────────────────────────────────
+       1. ファーストビュー
+    ───────────────────────────────────── */
+    #hero {
+      background: var(--white);
+      padding: 72px 0 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,158,142,.09) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(122,158,142,.1);
+      border: 1px solid rgba(122,158,142,.25);
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 12px;
+      color: var(--cta);
+      letter-spacing: .06em;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--cta);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(22px, 3.3vw, 36px);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--main);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--cta);
+      background: linear-gradient(transparent 60%, rgba(122,158,142,.25) 60%);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.95;
+      margin-bottom: 12px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.85;
+      border-left: 3px solid var(--accent-soft);
+      padding-left: 16px;
+      margin-bottom: 32px;
+    }
+
+    /* 右カラム */
+    .hero-card {
+      background: var(--main);
+      border-radius: 14px;
+      padding: 40px 32px;
+      color: #e8e4dc;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      bottom: -50px; right: -50px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(122,158,142,.1);
+    }
+    .hero-card-label {
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 18px;
+    }
+    .hero-card-q {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+    .hero-card-types {
+      list-style: none;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 18px;
+    }
+    .hero-card-types li {
+      font-size: 13px;
+      color: #b0c4bb;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-card-types li::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ─────────────────────────────────────
+       2. この診断でわかること
+    ───────────────────────────────────── */
+    .diagnosis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .diagnosis-item {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .diagnosis-num {
+      font-size: 11px;
+      letter-spacing: .18em;
+      color: var(--accent-soft);
+    }
+    .diagnosis-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: #e0dbd0;
+      line-height: 1.7;
+    }
+    .diagnosis-sub {
+      font-size: 12px;
+      color: #7a9490;
+      line-height: 1.65;
+    }
+
+    /* ─────────────────────────────────────
+       3. 共感ブロック
+    ───────────────────────────────────── */
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .empathy-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      transition: box-shadow .2s;
+    }
+    .empathy-item:hover { box-shadow: 0 4px 18px rgba(0,0,0,.06); }
+    .empathy-check {
+      width: 20px; height: 20px;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .empathy-check svg { width: 10px; height: 10px; stroke: var(--accent); fill: none; }
+
+    .empathy-closing {
+      background: var(--main);
+      color: #e8e4dc;
+      border-radius: 10px;
+      padding: 32px 36px;
+      text-align: center;
+    }
+    .empathy-closing p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+    .empathy-closing p + p { margin-top: 12px; }
+    .empathy-closing strong {
+      color: var(--accent-soft);
+    }
+
+    /* ─────────────────────────────────────
+       4. 孤独の再定義
+    ───────────────────────────────────── */
+    .reframe-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(18px, 2.6vw, 24px);
+      line-height: 1.75;
+      color: var(--main);
+      text-align: center;
+      padding: 48px 56px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 44px;
+      position: relative;
+    }
+    .reframe-quote::before {
+      content: '\201C';
+      font-size: 72px;
+      color: var(--accent-soft);
+      position: absolute;
+      top: 8px; left: 22px;
+      line-height: 1;
+      font-family: Georgia, serif;
+      opacity: .45;
+    }
+    .reframe-body {
+      max-width: 660px;
+      margin: 0 auto;
+      color: var(--text-mid);
+      font-size: 15px;
+    }
+    .reframe-highlight {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--cta);
+      text-align: center;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    /* ─────────────────────────────────────
+       5. 4タイプ（ティーザー）
+    ───────────────────────────────────── */
+    .types-teaser-intro {
+      max-width: 620px;
+      font-size: 15px;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+    }
+    .types-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .type-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .type-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+    .type-card:hover { box-shadow: 0 5px 22px rgba(0,0,0,.07); transform: translateY(-2px); }
+    .type-num {
+      font-size: 11px;
+      letter-spacing: .2em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .type-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      color: var(--main);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .type-catch {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .types-question {
+      text-align: center;
+      padding: 24px;
+      background: var(--base-alt);
+      border-radius: 8px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: var(--main);
+    }
+
+    /* ─────────────────────────────────────
+       6. 診断の流れ
+    ───────────────────────────────────── */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 640px;
+      margin: 0 auto 48px;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-num {
+      width: 44px; height: 44px;
+      background: var(--main);
+      color: #e8e4dc;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .flow-content h4 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: var(--main);
+      margin-bottom: 4px;
+    }
+    .flow-content p {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin: 0;
+    }
+
+    /* ─────────────────────────────────────
+       7. 特典
+    ───────────────────────────────────── */
+    .bonus-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .bonus-mock {
+      background: var(--main);
+      border-radius: 12px;
+      padding: 36px 32px;
+      color: #e8e4dc;
+    }
+    .bonus-mock-tag {
+      font-size: 10px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 14px;
+    }
+    .bonus-mock-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .bonus-mock-title span {
+      display: block;
+      font-size: 12px;
+      color: #8aa8a0;
+      margin-bottom: 4px;
+    }
+    .bonus-mock-list {
+      list-style: none;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 18px;
+    }
+    .bonus-mock-list li {
+      font-size: 13px;
+      color: #b0c4bc;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+    .bonus-mock-list li::before {
+      content: attr(data-num);
+      font-size: 10px;
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .bonus-info h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 19px;
+      color: var(--main);
+      margin-bottom: 14px;
+      line-height: 1.65;
+    }
+    .bonus-info p {
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+    .bonus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--base-alt);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: var(--main);
+      margin-top: 18px;
+    }
+    .bonus-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--cta);
+      border-radius: 50%;
+    }
+
+    /* ─────────────────────────────────────
+       8. Before / After
+    ───────────────────────────────────── */
+    .ba-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .ba-table th {
+      padding: 18px 24px;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: left;
+    }
+    .ba-table .th-before { background: var(--main); color: var(--accent-soft); }
+    .ba-table .th-after  { background: var(--base-alt); color: var(--text-mid); }
+    .ba-table td {
+      padding: 16px 24px;
+      font-size: 14px;
+      line-height: 1.75;
+      vertical-align: top;
+      border-top: 1px solid;
+    }
+    .ba-table .td-before {
+      background: var(--main-light);
+      color: #c8dcd6;
+      border-top-color: rgba(255,255,255,.08);
+      width: 50%;
+    }
+    .ba-table .td-after {
+      background: var(--white);
+      color: var(--text-mid);
+      border-top-color: var(--border);
+      width: 50%;
+    }
+
+    /* ─────────────────────────────────────
+       9. プロフィール
+    ───────────────────────────────────── */
+    .profile-inner {
+      display: grid;
+      grid-template-columns: 188px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .profile-avatar {
+      width: 164px; height: 164px;
+      background: linear-gradient(135deg, #c0d4cc, #96b4b0);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .profile-avatar svg { width: 70px; height: 70px; stroke: #fff; fill: none; stroke-width: 1.2; }
+    .profile-content h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 19px;
+      color: var(--main);
+      margin-bottom: 4px;
+    }
+    .profile-role {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+    .profile-content p {
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+    .profile-belief {
+      margin-top: 22px;
+      padding: 18px 22px;
+      background: var(--base-alt);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      color: var(--main);
+      line-height: 1.8;
+    }
+
+    /* ─────────────────────────────────────
+       10. FAQ
+    ───────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+    }
+    .faq-q-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--main);
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .faq-q-text::before {
+      content: 'Q.';
+      font-family: 'Noto Serif JP', serif;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .faq-toggle {
+      width: 22px; height: 22px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform .25s;
+    }
+    .faq-toggle svg { width: 10px; height: 10px; stroke: var(--text-soft); fill: none; stroke-width: 2; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+    .faq-a-inner {
+      padding: 0 26px 20px 52px;
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.9;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .faq-a-inner::before {
+      content: 'A.';
+      font-family: 'Noto Serif JP', serif;
+      color: var(--main-light);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-a  { max-height: 320px; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+    /* ─────────────────────────────────────
+       11. 最終CTA
+    ───────────────────────────────────── */
+    #final-cta {
+      background: var(--main);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .final-cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(20px, 3vw, 30px);
+      color: #e8e4dc;
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    /* フッター */
+    footer {
+      background: #1c2630;
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 12px; color: #506070; margin: 0; }
+
+    /* ─────────────────────────────────────
+       レスポンシブ
+    ───────────────────────────────────── */
+    @media (max-width: 720px) {
+      .section { padding: 60px 0; }
+      .hero-inner        { grid-template-columns: 1fr; }
+      .hero-card         { display: none; }
+      .empathy-grid      { grid-template-columns: 1fr; }
+      .types-grid        { grid-template-columns: 1fr; }
+      .bonus-inner       { grid-template-columns: 1fr; }
+      .profile-inner     { grid-template-columns: 1fr; text-align: center; }
+      .profile-avatar    { margin: 0 auto; }
+      .ba-table thead    { display: none; }
+      .ba-table, .ba-table tbody, .ba-table tr, .ba-table td { display: block; width: 100%; }
+      .ba-table .td-before { border-top: none; padding-bottom: 8px; }
+      .ba-table .td-before::before { content: 'Before'; display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 6px; }
+      .ba-table .td-after::before  { content: 'After';  display: block; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 6px; }
+      .btn-cta { padding: 18px 32px; font-size: 16px; width: 100%; max-width: 340px; }
+      .reframe-quote { padding: 36px 28px; }
+      .flow-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     1. ファーストビュー
+═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!-- 左 -->
+      <div>
+        <div class="hero-eyebrow">無料・3分・結果はメールで受け取り</div>
+
+        <h1 class="hero-title">
+          仕事では成果を出せる。<br>
+          でも、<em>本音で話せる相手</em>が<br>
+          どこにもいない気がする。
+        </h1>
+
+        <p class="hero-sub">
+          その感覚は、性格の問題でも、コミュニケーション力の欠如でもありません。
+          深くつながれない理由には、パターンがあります。
+        </p>
+
+        <p class="hero-note">
+          3分の無料診断で、あなたの「対話パターン」を診断。
+          会話が浅く終わる原因と、今日から変えられる最初の一歩がわかります。
+        </p>
+
+        <div class="cta-block" style="text-align:left; margin-top:28px;">
+          <a href="#" class="btn-cta">無料で診断する（3分）</a>
+          <div class="cta-badges" style="justify-content:flex-start; margin-top:14px;">
+            <span class="cta-badge">完全無料</span>
+            <span class="cta-badge">3分で完了</span>
+            <span class="cta-badge">結果はメールで受け取り</span>
+            <span class="cta-badge">いつでも解除可能</span>
+            <span class="cta-badge">営業・勧誘は一切なし</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右 -->
+      <div class="hero-card">
+        <p class="hero-card-label">Diagnosis Preview</p>
+        <p class="hero-card-q">
+          「深くつながれない」には、<br>4つのパターンがある。<br>あなたはどのタイプ？
+        </p>
+        <ul class="hero-card-types">
+          <li>役割会話タイプ</li>
+          <li>自己開示ブレーキタイプ</li>
+          <li>衝突回避タイプ</li>
+          <li>浅いつながり量産タイプ</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     2. この診断でわかること
+═══════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="container">
+    <span class="section-label">What You'll Discover</span>
+    <h2 class="section-title">3分の診断で、これがわかります</h2>
+
+    <div class="diagnosis-grid">
+      <div class="diagnosis-item">
+        <p class="diagnosis-num">01</p>
+        <p class="diagnosis-text">あなたの「対話パターン」タイプ</p>
+        <p class="diagnosis-sub">4つのタイプのうち、あなたはどれか。深くつながれない根本の傾向がわかります。</p>
+      </div>
+      <div class="diagnosis-item">
+        <p class="diagnosis-num">02</p>
+        <p class="diagnosis-text">会話が浅く終わる、具体的な原因</p>
+        <p class="diagnosis-sub">「話は弾む、でもつながった感じがしない」その理由が言語化されます。</p>
+      </div>
+      <div class="diagnosis-item">
+        <p class="diagnosis-num">03</p>
+        <p class="diagnosis-text">本音を出しにくくしている思考パターン</p>
+        <p class="diagnosis-sub">自覚しにくい認知の癖が、どう対話に影響しているかがわかります。</p>
+      </div>
+      <div class="diagnosis-item">
+        <p class="diagnosis-num">04</p>
+        <p class="diagnosis-text">関係を壊さずに対話するための改善ポイント</p>
+        <p class="diagnosis-sub">今日から試せる、小さくて具体的な行動のヒントを提案します。</p>
+      </div>
+      <div class="diagnosis-item">
+        <p class="diagnosis-num">05</p>
+        <p class="diagnosis-text">相手の本音を引き出す質問のヒント</p>
+        <p class="diagnosis-sub">重くならず、でも深くなる。そんな質問の使い方がわかります。</p>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <a href="#" class="btn-cta">無料で診断する（3分）</a>
+      <div class="cta-badges">
+        <span class="cta-badge">完全無料</span>
+        <span class="cta-badge">3分で完了</span>
+        <span class="cta-badge">結果はメールで受け取り</span>
+        <span class="cta-badge">いつでも解除可能</span>
+        <span class="cta-badge">営業・勧誘は一切なし</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     3. 共感ブロック
+═══════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Does This Sound Familiar?</span>
+    <h2 class="section-title">こんな感覚、ありませんか？</h2>
+
+    <div class="empathy-grid">
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        人と会う機会は多いのに、満たされない
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        会話は盛り上がるのに、深くつながった感じがしない
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        弱さや迷いを見せると、信頼を失う気がする
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        仕事の話はできる。でも、本音の話が少ない
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        意見が違うと感じると、黙るか話を合わせてしまう
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        「いい人」どまりで、関係が深まらない
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        成果は出しているのに、どこか空虚さが残る
+      </div>
+      <div class="empathy-item">
+        <div class="empathy-check"><svg viewBox="0 0 10 10" stroke-width="2.5"><polyline points="1,5 3.5,8 9,2"/></svg></div>
+        まわりに人はいる。でも、ひとりで抱えている感覚がある
+      </div>
+    </div>
+
+    <div class="empathy-closing">
+      <p>もし一つでも当てはまるなら、あなたに足りないのは「努力」でも「明るさ」でもありません。</p>
+      <p><strong>深くつながるための対話の型を、まだ知らないだけかもしれません。</strong></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     4. 孤独の再定義
+═══════════════════════════════════════ -->
+<section class="section section-white">
+  <div class="container">
+    <span class="section-label">Reframe</span>
+    <h2 class="section-title">孤独は、"人がいないこと"ではありません</h2>
+
+    <div class="reframe-quote">
+      孤独とは、<br>
+      人がいないことではなく、<br>
+      <strong>本音を置ける関係がないこと</strong>です。
+    </div>
+
+    <div class="reframe-body">
+      <p>成果を出せる人ほど、周囲から期待され、役割を持ち、頼られます。そのぶん、「弱さ」「迷い」「本音」を出す機会が減っていきます。</p>
+      <p>気づけば、会話は増えているのに、心が動く話が減っている。</p>
+      <p>これは性格の問題ではなく、役割が増えるにつれて起きる「対話の質の変化」です。</p>
+
+      <div class="reframe-highlight">
+        孤独の原因は、人脈の少なさではなく、対話の質にあるかもしれません。
+      </div>
+
+      <p>この診断は、自分がどんな「対話のパターン」を持っているかを知り、変えるための第一歩として設計されています。</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     5. 4タイプ（ティーザー）
+═══════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">4 Dialogue Types</span>
+    <h2 class="section-title">「深くつながれない」には、4つのパターンがある</h2>
+    <p class="types-teaser-intro">
+      診断では、以下の4タイプのうちあなたに当てはまるパターンを特定します。
+      それぞれ、原因も改善アプローチも異なります。
+    </p>
+
+    <div class="types-grid">
+      <div class="type-card">
+        <p class="type-num">Type 01</p>
+        <h3 class="type-name">役割会話タイプ</h3>
+        <p class="type-catch">仕事モードが抜けない。役割の外で話すのが苦手。</p>
+      </div>
+      <div class="type-card">
+        <p class="type-num">Type 02</p>
+        <h3 class="type-name">自己開示ブレーキタイプ</h3>
+        <p class="type-catch">つながりたい。でも、弱みを見せることへの抵抗がある。</p>
+      </div>
+      <div class="type-card">
+        <p class="type-num">Type 03</p>
+        <h3 class="type-name">衝突回避タイプ</h3>
+        <p class="type-catch">関係を壊したくなくて、違和感を飲み込んでしまう。</p>
+      </div>
+      <div class="type-card">
+        <p class="type-num">Type 04</p>
+        <h3 class="type-name">浅いつながり量産タイプ</h3>
+        <p class="type-catch">接点は多い。でも、どれも表面的で終わっている気がする。</p>
+      </div>
+    </div>
+
+    <div class="types-question">
+      あなたはどのタイプかもしれません。診断で確かめてみてください。
+    </div>
+
+    <div class="cta-block">
+      <a href="#" class="btn-cta">無料で診断する（3分）</a>
+      <div class="cta-badges">
+        <span class="cta-badge">完全無料</span>
+        <span class="cta-badge">3分で完了</span>
+        <span class="cta-badge">結果はメールで受け取り</span>
+        <span class="cta-badge">いつでも解除可能</span>
+        <span class="cta-badge">営業・勧誘は一切なし</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     6. 診断の流れ
+═══════════════════════════════════════ -->
+<section class="section section-white">
+  <div class="container">
+    <span class="section-label">How It Works</span>
+    <h2 class="section-title">診断の流れ</h2>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <h4>メールアドレスを入力（30秒）</h4>
+          <p>登録情報はこの診断の結果送付のみに使用します。営業・勧誘メールはありません。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <h4>10問の設問に答える（2〜3分）</h4>
+          <p>日常の対話の場面をもとにした設問です。専門知識は不要。直感で答えてください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <h4>診断結果がメールで届く</h4>
+          <p>あなたのタイプ・原因・改善ポイントをまとめたレポートが、登録メールアドレスに届きます。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <h4>無料PDF特典も同時に受け取り</h4>
+          <p>診断結果と合わせて、今日から対話を変えるためのPDFをお渡しします。</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     7. 特典
+═══════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">Free Bonus PDF</span>
+    <h2 class="section-title">診断後に、無料PDFも受け取れます</h2>
+
+    <div class="bonus-inner">
+      <div class="bonus-mock">
+        <p class="bonus-mock-tag">Free PDF Bonus</p>
+        <h3 class="bonus-mock-title">
+          <span>深くつながる対話の始め方</span>
+          孤独なハイパフォーマーのための5つの処方箋
+        </h3>
+        <ul class="bonus-mock-list">
+          <li data-num="01">成果を出す人ほど孤独になりやすい理由</li>
+          <li data-num="02">「深い会話は重い」という思い込みを外す視点</li>
+          <li data-num="03">会話が浅く終わる人に共通する3つの癖</li>
+          <li data-num="04">本音でつながるための質問10選</li>
+          <li data-num="05">意見が違っても関係を壊さない話し方の基本</li>
+          <li data-num="06">7日間のミニ実践ワーク</li>
+        </ul>
+      </div>
+
+      <div class="bonus-info">
+        <h3>診断を受けるだけで、すぐに使えるPDFが届きます</h3>
+        <p>診断結果と合わせて、今日から対話を少しずつ変えるための具体的なヒントが詰まったPDFをお渡しします。</p>
+        <p>「何から変えればいいかわからない」という方でも、小さな一歩から始められる内容です。</p>
+        <div class="bonus-badge">登録後すぐに受け取れます</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     8. Before / After
+═══════════════════════════════════════ -->
+<section class="section section-white">
+  <div class="container">
+    <span class="section-label">Transformation</span>
+    <h2 class="section-title">診断で自分のパターンを知ると、何が変わるか</h2>
+
+    <table class="ba-table">
+      <thead>
+        <tr>
+          <th class="th-before">Before — 今の状態</th>
+          <th class="th-after">After — 変化のイメージ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-before">会話が終わるたびに、どこか空虚な感覚が残る</td>
+          <td class="td-after">相手の話を一つ深く掘れた、という手ごたえで終わる</td>
+        </tr>
+        <tr>
+          <td class="td-before">本音を言いたいけれど、言葉にする前に飲み込んでしまう</td>
+          <td class="td-after">小さな本音を、重くせず自然に伝えられるようになる</td>
+        </tr>
+        <tr>
+          <td class="td-before">意見の違いを感じると、話題を変えるか黙ってしまう</td>
+          <td class="td-after">「違う」と思っても、関係を壊さず話せる言い方がわかる</td>
+        </tr>
+        <tr>
+          <td class="td-before">仕事の話しかできない相手が多い</td>
+          <td class="td-after">役割を外して話せる場面を、自分でつくれる</td>
+        </tr>
+        <tr>
+          <td class="td-before">孤独の原因が、自分の性格のせいだと思っている</td>
+          <td class="td-after">「対話のパターン」の問題だとわかり、変える方法が見える</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     9. プロフィール（信頼性）
+═══════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">この診断をつくった人</h2>
+
+    <div class="profile-inner">
+      <div>
+        <div class="profile-avatar">
+          <svg viewBox="0 0 80 80">
+            <circle cx="40" cy="28" r="14" stroke-width="1.5"/>
+            <path d="M10 72c0-16.569 13.431-30 30-30s30 13.431 30 30" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="profile-content">
+        <h3>お名前をここに入力</h3>
+        <p class="profile-role">※ここはあなたのプロフィールに差し替えてください</p>
+
+        <p>この診断は、「仕事ではうまくやれている。でも、なぜか満たされない」という声を多く聞いてきた経験から生まれました。</p>
+        <p>多くの場合、その感覚の原因は「人脈の少なさ」でも「話し方の下手さ」でもありませんでした。会話のなかで無意識に使っているパターン——本音を出すことへの躊躇、違和感を飲み込む習慣、役割の外で話せない感覚——が、深くつながることを妨げていました。</p>
+        <p>この診断は、そのパターンを言語化し、変えるための第一歩として設計しています。</p>
+
+        <div class="profile-belief">
+          深いつながりは才能ではなく、学べる対話の技術です。<br>
+          まずは自分のパターンを知ることが、変化の出発点になります。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     10. FAQ
+═══════════════════════════════════════ -->
+<section class="section section-white">
+  <div class="container">
+    <span class="section-label">FAQ</span>
+    <h2 class="section-title">よくある質問</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">本当に無料ですか？</span>
+          <span class="faq-toggle"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">はい、完全無料です。診断・結果レポート・PDF特典のすべてが無料で受け取れます。クレジットカードの登録は一切不要です。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">診断後に、しつこい営業はありますか？</span>
+          <span class="faq-toggle"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">一切ありません。診断後に関連する情報をお届けすることはありますが、不要な場合はすぐに解除できます。強制や勧誘はありません。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">本当に3分で終わりますか？</span>
+          <span class="faq-toggle"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">はい。設問は10問で、すべて選択式です。考え込まず、直感で答えていただくと、2〜3分で完了します。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">これはカウンセリングや心理テストですか？</span>
+          <span class="faq-toggle"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">いいえ。これは、深くつながる対話のパターンを知るための診断です。カウンセリングや心理療法ではなく、日常の対話を変えるためのヒントを提供することを目的にしています。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-text">どんな人におすすめですか？</span>
+          <span class="faq-toggle"><svg viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6"/></svg></span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">仕事では成果を出しているが、本音でつながる感覚が薄く、どこか孤独を感じている方に向いています。年齢・職業は問いません。「人と話せる。でも深くつながれない」という感覚を持ったことがある方なら、きっと役に立つ内容です。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     11. 最終 CTA
+═══════════════════════════════════════ -->
+<section id="final-cta">
+  <div class="container">
+    <span class="section-label">Take the First Step</span>
+    <p class="final-cta-title">
+      あなたの孤独は、弱さではありません。<br>
+      まず「自分の対話パターン」を知ることが、<br>
+      変化の第一歩になります。
+    </p>
+    <a href="#" class="btn-cta">無料で診断する（3分）</a>
+    <div class="cta-badges" style="margin-top:18px;">
+      <span class="cta-badge">完全無料</span>
+      <span class="cta-badge">3分で完了</span>
+      <span class="cta-badge">結果はメールで受け取り</span>
+      <span class="cta-badge">いつでも解除可能</span>
+      <span class="cta-badge">営業・勧誘は一切なし</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Deep Dialogue Diagnosis. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
